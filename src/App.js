@@ -1,4 +1,6 @@
 import List from "./components/List/index";
+import React from 'react';
+import AddButtonList from "./components/AddList";
 
 
 function App() {
@@ -32,7 +34,10 @@ function App() {
           },
 
         ]}
+        isRemovable
           />
+        
+        <AddButtonList />
       </div>
       <div className='todo__tasks'></div>
 
