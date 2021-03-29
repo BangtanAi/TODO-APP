@@ -2,9 +2,12 @@ import {useState} from 'react';
 import List from "../List";
 import './AddButtonList.scss';
 import '../../index.scss';
+import Badge from '../Badge';
+import closeSvg from '../../assets/img/close.svg'
 
-const AddButtonList = () => {
-  const[visiblePopup, setVisiblePopup] = useState(true);
+const AddList = ({ colors }) => {
+  const[visiblePopup, setVisiblePopup] = useState(false);
+  const[selectedColor, selectColor] = useState(colors[0].id);
     return (
         <div className='add-list'>
             <List
@@ -22,7 +25,16 @@ const AddButtonList = () => {
         />
         {visiblePopup && (
           <div className = 'add-list__popup'>
+            <img onClick={()=> setVisiblePopup(false)} src={closeSvg} alt='closeButton' className='add-list__popup-close-btn' />
           <input className='field' type='text' placeholder='Название списка' />
+          <div className='add-list__popup-colors'>
+            {colors.map(color => (
+                <Badge onClick={()=>selectColor(color.id)} 
+                key={color.id} 
+                color={color.name}
+                className={selectedColor === color.id && 'active' } />
+            ))}
+          </div>
           <button className='button' >Добавить</button>
           </div>
         )}
@@ -34,4 +46,4 @@ const AddButtonList = () => {
     
         
 
-export default AddButtonList;
+export default AddList;
