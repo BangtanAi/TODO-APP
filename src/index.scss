@@ -36,18 +36,6 @@
   }
 }
 
-.field {
-  background: #FFFFFF;
-  border: 1px solid #fcf7f7;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 8px 12px;
-  width: 100%;
- 
-  &:hover {
-    border-color: #b8b4b4;
-  }
-}
 .button {
   background: #4DD599;
   border-radius: 4px;
@@ -60,6 +48,19 @@
   }
   &:active {
     background: darken(#4DD599, 10%)
+  }
+}
+
+.field {
+  background: #FFFFFF;
+  border: 1px solid #fcf7f7;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+ 
+  &:focus {
+    border-color: #b8b4b4;
   }
 }
 

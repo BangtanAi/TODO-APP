@@ -28,6 +28,9 @@
           opacity: 0.8;
         }
       }
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
 
      
       &.active {
