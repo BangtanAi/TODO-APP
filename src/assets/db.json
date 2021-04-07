@@ -41,12 +41,6 @@
     },
     {
       "listId": 1,
-      "text": "qweqwe",
-      "completed": true,
-      "id": 8
-    },
-    {
-      "listId": 1,
       "text": "123",
       "completed": false,
       "id": 9
@@ -76,22 +70,10 @@
       "id": 17
     },
     {
-      "listId": 1,
-      "text": "ddd",
+      "listId": 3,
+      "text": "1+1",
       "completed": false,
       "id": 18
-    },
-    {
-      "listId": 1,
-      "text": "ddddd",
-      "completed": false,
-      "id": 19
-    },
-    {
-      "listId": 1,
-      "text": "ddd",
-      "completed": false,
-      "id": 20
     }
   ],
   "colors": [
