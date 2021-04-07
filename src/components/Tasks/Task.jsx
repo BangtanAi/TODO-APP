@@ -1,11 +1,11 @@
 import React from "react";
 
-const Task = ({ task }) => {
+const Task = ({ id, list, text, onRemove, onEdit }) => {
   return (
-    <div key={task.id} className="tasks__items-row">
+    <div key={id} className="tasks__items-row">
       <div className="checkbox">
-        <input id={`task-${task.id}`} type="checkbox" />
-        <label htmlFor={`task-${task.id}`}>
+        <input id={`task-${id}`} type="checkbox" />
+        <label htmlFor={`task-${id}`}>
           <svg
             width="11"
             height="8"
@@ -23,7 +23,7 @@ const Task = ({ task }) => {
           </svg>
         </label>
       </div>
-      <input readOnly value={task.text} />
+      <input readOnly value={text} />
       <div className="tasks__items-row-actions">
         <div>
           <svg
@@ -40,7 +40,7 @@ const Task = ({ task }) => {
           </svg>
         </div>
 
-        <div>
+        <div onClick={() => onRemove(list.id, id)}>
           <svg
             width="11"
             height="11"
