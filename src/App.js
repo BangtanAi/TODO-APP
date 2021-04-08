@@ -63,6 +63,28 @@ function App() {
       });
   };
 
+  const onCompleteTask = (listId, taskId, completed) => {
+    const newList = lists.map((list) => {
+      if (list.id === listId) {
+        list.tasks = list.tasks.map((task) => {
+          if (task.id === taskId) {
+            task.completed = completed;
+          }
+          return task;
+        });
+      }
+      return list;
+    });
+    setLists(newList);
+    axios
+      .patch("http://localhost:3005/tasks/" + taskId, {
+        completed,
+      })
+      .catch(() => {
+        alert("Не удалось обновить задачу");
+      });
+  };
+
   const onRemoveTask = (listId, taskId) => {
     if (window.confirm("Вы действительно хотите удалить задачу?")) {
       const newList = lists.map((item) => {
@@ -105,7 +127,7 @@ function App() {
           }}
           items={[
             {
-              active: true,
+              active: history.location.pathname === "/",
               icon: (
                 <svg
                   width="14"
@@ -152,6 +174,9 @@ function App() {
                 list={list}
                 onEditTitle={onEditListTitle}
                 onAddTask={onAddTask}
+                onRemoveTask={onRemoveTask}
+                onEditTask={onEditTask}
+                onCompleteTask={onCompleteTask}
                 withoutEmpty
               />
             ))}
@@ -164,6 +189,7 @@ function App() {
               onAddTask={onAddTask}
               onRemoveTask={onRemoveTask}
               onEditTask={onEditTask}
+              onCompleteTask={onCompleteTask}
             />
           )}
         </Route>
