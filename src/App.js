@@ -36,6 +36,33 @@ function App() {
     setLists(newList);
   };
 
+  const onEditTask = (listId, taskObj) => {
+    const newTaskText = window.prompt("Текст задачи", taskObj.text);
+
+    if (!newTaskText) {
+      return;
+    }
+    const newList = lists.map((list) => {
+      if (list.id === listId) {
+        list.tasks = list.tasks.map((task) => {
+          if (task.id === taskObj.id) {
+            task.text = newTaskText;
+          }
+          return task;
+        });
+      }
+      return list;
+    });
+    setLists(newList);
+    axios
+      .patch("http://localhost:3005/tasks/" + taskObj.id, {
+        text: newTaskText,
+      })
+      .catch(() => {
+        alert("Не удалось отредактировать задачу");
+      });
+  };
+
   const onRemoveTask = (listId, taskId) => {
     if (window.confirm("Вы действительно хотите удалить задачу?")) {
       const newList = lists.map((item) => {
@@ -136,6 +163,7 @@ function App() {
               onEditTitle={onEditListTitle}
               onAddTask={onAddTask}
               onRemoveTask={onRemoveTask}
+              onEditTask={onEditTask}
             />
           )}
         </Route>
