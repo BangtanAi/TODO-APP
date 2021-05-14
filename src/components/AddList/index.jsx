@@ -31,7 +31,7 @@ const AddList = ({ colors, onAdd }) => {
     }
     setIsLoading(true);
     axios
-      .post("https://to-do-react-deploy.herokuapp.com/api/lists", {
+      .post("https://to-do-react-deploy.herokuapp.com/lists", {
         name: inputValue,
         colorId: selectedColor,
       })

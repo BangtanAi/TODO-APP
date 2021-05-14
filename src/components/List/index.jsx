@@ -8,7 +8,7 @@ import removeSvg from "../../assets/img/remove.svg";
 const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem }) => {
   const removeList = (item) => {
     if (window.confirm("Вы действительно хотите удалить список?")) {
-      axios.delete("https://to-do-react-deploy.herokuapp.com/api/lists/" + item.id).then(() => {
+      axios.delete("https://to-do-react-deploy.herokuapp.com/lists/" + item.id).then(() => {
         onRemove(item.id);
       });
     }
