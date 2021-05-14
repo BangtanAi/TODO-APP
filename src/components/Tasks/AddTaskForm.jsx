@@ -22,7 +22,7 @@ const AddTaskForm = ({list, onAddTask}) => {
         };
         setIsLoading(true);
         axios
-        .post('http://localhost:3005/tasks', obj)
+        .post('https://to-do-react-deploy.herokuapp.com/api/tasks', obj)
         .then(({data}) => {
             console.log(data);
             onAddTask(list.id, data);

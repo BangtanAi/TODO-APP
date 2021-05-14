@@ -13,10 +13,10 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
-    axios.get("http://localhost:3005/lists?_expand=color&_embed=tasks").then(({ data }) => {
+    axios.get("https://to-do-react-deploy.herokuapp.com/api/lists?_expand=color&_embed=tasks").then(({ data }) => {
       setLists(data);
     });
-    axios.get("http://localhost:3005/colors").then(({ data }) => {
+    axios.get("https://to-do-react-deploy.herokuapp.com/api/colors").then(({ data }) => {
       setColors(data);
     });
   }, []);
